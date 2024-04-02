@@ -1,0 +1,20 @@
+name: "Godot Mono Build"
+description: "Build a Godot mono project for multiple platforms"
+author: lilian1024
+inputs:
+  name:
+    description: 'Name of the exported binary'
+    required: true
+  preset:
+    description: 'Name of the preset in `export_presets.cfg` to use'
+    required: true
+  debugMode:
+    description: 'Whether or not to use `--export-debug`'
+    default: false
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.name }}
+    - ${{ inputs.preset }}
+    - ${{ inputs.debugMode }}

@@ -1,0 +1,32 @@
+name: Build and Export Godot Project
+
+on:
+  push: 
+    branches:
+      - main
+      - dev
+
+jobs:
+  Godot:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform:
+          - preset: Windows Desktop
+            name: Windows-exe
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: Build
+        id: build
+        uses: manleydev/build-godot-action@v1.5.0
+        with:
+          name: Atria
+          preset: ${{ matrix.platform.preset }}
+          debugMode: "false"
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Client - ${{ matrix.platform.name }}
+          path: ./build/
