@@ -12,4 +12,4 @@ FROM lilian1024/godot-mono:4.2.1
 ADD entrypoint.sh ./entrypoint.sh
 RUN chmod +x ./entrypoint.sh
 
-ENTRYPOINT ["ls", "./"]
+ENTRYPOINT ["./entrypoint.sh"]
