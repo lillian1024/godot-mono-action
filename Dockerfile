@@ -11,7 +11,7 @@ FROM lilian1024/godot-mono:4.2.1
 
 USER root
 
-ADD entrypoint.sh ./entrypoint.sh
-RUN chmod +x ./entrypoint.sh
+ADD entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
