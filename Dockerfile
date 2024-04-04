@@ -1,13 +1,11 @@
-FROM lilian1024/godot-mono:4.2.1
+FROM barichello/godot-ci:mono-4.2.1
 
-#Copy source code and prepare files
+RUN wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+RUN dpkg -i packages-microsoft-prod.deb
+RUN rm packages-microsoft-prod.deb
 
-#Build project
-#RUN godot "./sc/project.godot" --headless --export-debug "Linux Docker" /home/appuser/builds/server
-
-#Remove source code and Godot editor
-#RUN rm -rf ./sc
-#RUN ungodot
+RUN apt-get update
+RUN apt-get install -y dotnet-sdk-7.0
 
 USER root
 
