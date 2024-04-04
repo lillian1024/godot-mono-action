@@ -1,5 +1,5 @@
 name: "Godot Mono Build"
-description: "Build a Godot mono project for multiple platforms"
+description: "Build a Godot mono project for multiple platforms greatly inspired by yeslayla/build-godot-action -> https://github.com/yeslayla/build-godot-action/tree/master"
 author: lilian1024
 inputs:
   name:
